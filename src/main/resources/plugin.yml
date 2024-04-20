@@ -1,0 +1,4 @@
+name: HealthBar
+version: '${project.version}'
+main: net.tv.twitch.chrono_fish.healthbar.HealthBar
+api-version: '1.20'
