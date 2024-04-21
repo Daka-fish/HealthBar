@@ -20,11 +20,12 @@ public class HealthManager implements Listener {
     }
 
     public void setHealthBar(LivingEntity e, int health){
-        int count = 0;
+        int count = 1;
         double maxHealth = e.getMaxHealth();
-        StringBuilder healthBar = new StringBuilder(ChatColor.GREEN + "|");
         double healthRate = (health/maxHealth)*10;
-        if(health < 1) healthRate = 1;
+
+        StringBuilder healthBar = new StringBuilder(ChatColor.GREEN + "|");
+        if(health < 1) healthRate = 0;
 
         for(int i=0; i<10; i++){
             if(count > healthRate){
@@ -35,7 +36,9 @@ public class HealthManager implements Listener {
             count++;
         }
         healthBar.append("|");
-        healthBar.append(" ("+health+"/"+maxHealth+")");
+
+        String hp = " ("+health+"/"+maxHealth+")";
+        healthBar.append(hp);
         entity.setCustomName(healthBar.toString());
         entity.setCustomNameVisible(true);
 
